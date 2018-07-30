@@ -1,6 +1,6 @@
 
 .brain-onelogin {
-    background-color: rgb(146, 146, 204);
+    background-color: white;
     height: 800px;
     margin-top: -50px;
 }
@@ -13,4 +13,8 @@
 .brain-nopadding {
     padding-right: 0px !important;
     padding-left: 0px !important;
+}
+
+.brain-border {
+    background-color: rgb(146, 146, 204);
 }
