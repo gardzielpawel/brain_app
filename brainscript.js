@@ -1,54 +1,25 @@
-// // var element = React.createElement('div', {}, 'Hello World');
+'use strict';
 
-// class BrainApp extends React.Component {
+const e = React.createElement;
 
-//     state = {
-//         firstName: "",
-//         lastName: "",
-//         date: "",
-//         email: ""
-//     };
+class LikeButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
+  }
 
-//     onSubmit = e => {
-//         e.preventDefault();
-//         this.setState ({
-//             firstName: "",
-//             lastName: "",
-//             date: "",
-//             email: ""
-//         });
-//         this.props.onChange ({
-//             firstName: "",
-//             lastName: "",
-//             date: "",
-//             email: ""
-//         });
-//     };
+  render() {
+    if (this.state.liked) {
+      return 'You liked this.';
+    }
 
+    return e(
+      'button',
+      { onClick: () => this.setState({ liked: true }) },
+      'Like'
+    );
+  }
+}
 
-
-//     render() {
-//         return (
-//             <form>
-//                 <div class="head"> 
-//                 <p>First Name:<input type="text" name="firstName" placeholder="First Name" value={this.state.firstName} onChange={e => this.change(e)} /></p>
-//                 <p>Last Name:<input type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} onChange={e => this.change(e)} /></p>
-//                 <p>Event date:<input type="date" placeholder="Date" value={this.state.date} onChange={e => this.change(e)} /></p>
-//                 <p>Email:<input type="text" name="email" placeholder="Email" value={this.state.email} onChange={e => this.change(e)} /></p>
-//                 </div>
-//             </form>
-//         );
-//     }
-// }
-
-
-
-// ReactDOM.render(App, document.getElementById('app'));
-
-// var element = React.createElement('div', {}, 
-//     React.createElement('p', {}, 'Name:'),
-//     React.createElement('input', {}, )
-
-// )
-
-
+const domContainer = document.querySelector('#app');
+ReactDOM.render(e(LikeButton), domContainer);
