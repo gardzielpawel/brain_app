@@ -1,4 +1,16 @@
-.head {
+
+.brain-onelogin {
     text-align: center;
-    margin-top: 40px;
+    background-color: rgb(146, 146, 204);
+    height: 800px;
+}
+
+.brain-header {
+    height: 200px;
+    background-color: rgb(45, 6, 117)
+
+}
+.brain-nopadding {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
 }
