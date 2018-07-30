@@ -1,0 +1,28 @@
+
+.brain-onelogin {
+  background-color: white;
+  margin-top: -50px;
+  padding-top: 40px;
+
+}
+
+.brain-header {
+  height: 200px;
+  background-color: rgb(45, 6, 117)
+
+}
+.brain-nopadding {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  height: 100%;
+}
+
+.brain-border {
+  background-color: rgb(146, 146, 204);
+  height: 100vh;
+}
+
+.brain-title {
+  padding-bottom: 20px;
+
+}

@@ -37,45 +37,66 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <form>
-        <input
-          name="firstName"
-          placeholder="First name"
-          value={this.state.firstName}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="lastName"
-          placeholder="Last name"
-          value={this.state.lastName}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="username"
-          placeholder="Username"
-          value={this.state.username}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="email"
-          placeholder="Email"
-          value={this.state.email}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={this.state.password}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <button onClick={e => this.onSubmit(e)}>Submit</button>
-      </form>
+        <div className="container-fluid brain-nopadding">
+        <div className="brain-header"></div>
+        <div className="row">
+        <div className="col-md-2 brain-border"></div>
+        <div className="col-md-8 brain-onelogin">
+            <h1 className="brain-title">Sign up for a party </h1>
+            <form>
+            <div className="form-group">
+                <label htmlFor="firstName">First name</label>
+                <input type="text" className="form-control" id="firstName" placeholder="First Name" value={this.state.firstName} onChange={e => this.change(e)} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="lastName">Last name</label>
+                <input type="text" className="form-control" id="lastName" placeholder="Last Name" value={this.state.lastName} onChange={e => this.change(e)} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="eventDate">Event date</label>
+                <input type="date" className="form-control" id="eventDate" placeholder="Event Date" value={this.state.eventDate} onChange={e => this.change(e)} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="email">Email address</label>
+                <input type="email" className="form-control" id="email" placeholder="Email" value={this.state.email} onChange={e => this.change(e)} />
+            </div>
+            <button onClick={e => this.onSubmit(e)} type="submit" className="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div className="col-md-2 brain-border"></div>
+        </div>
+        </div>
     );
   }
 }
+
+
+{/* <div className="container-fluid brain-nopadding">
+<div className="brain-header"></div>
+<div className="row">
+  <div className="col-md-2 brain-border"></div>
+  <div className="col-md-8 brain-onelogin">
+    <h1 className="brain-title">Sign up for a party </h1>
+    <form>
+      <div className="form-group">
+        <label htmlFor="firstName">First name</label>
+        <input type="text" className="form-control" id="firstName" placeholder="First Name" value={this.state.firstName} onChange={e => this.change(e)}>
+      </div>
+      <div className="form-group">
+        <label htmlFor="lastName">Last name</label>
+        <input type="text" className="form-control" id="lastName" placeholder="Last Name" value={this.state.lastName} onChange={e => this.change(e)}>
+      </div>
+      <div className="form-group">
+        <label htmlFor="eventDate">Event date</label>
+        <input type="date" className="form-control" id="eventDate" placeholder="Event Date" value={this.state.eventDate} onChange={e => this.change(e)}>
+      </div>
+      <div className="form-group">
+        <label htmlFor="email">Email address</label>
+        <input type="email" className="form-control" id="email" placeholder="Email" value={this.state.email} onChange={e => this.change(e)}>
+      </div>
+      <button onClick={e => this.onSubmit(e)} type="submit" className="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div className="col-md-2 brain-border"></div>
+</div>
+</div> */}
