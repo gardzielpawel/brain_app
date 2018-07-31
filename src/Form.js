@@ -25,17 +25,17 @@ export default class Form extends React.Component {
   formSubmit(event) {
     let errorMessage = "";
     if (this.state.firstName == ""){
-      errorMessage += "First name is empty \n";
+      errorMessage += "First name is empty";
     }
     if (this.state.lastName == ""){
-      errorMessage += "Last name is empty \n";
+      errorMessage += "Last name is empty";
     }
     if (this.state.eventDate == ""){
-      errorMessage += "Event date is empty \n";
+      errorMessage += "Event date is empty";
     }
     console.log(this.state.email.indexOf("@"));
     if (this.state.email.indexOf("@") == -1){
-      errorMessage += "Not valid email \n";
+      errorMessage += "Not valid email";
     }
     this.setState({
       error: errorMessage
