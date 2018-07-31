@@ -23,11 +23,26 @@ export default class Form extends React.Component {
   }
 
   formSubmit(event) {
+    let errorMessage = "";
     if (this.state.firstName == ""){
-      this.setState({
-        error: "Error djfsdfaksdf"
-      });
+      errorMessage += "First name is empty \n";
     }
+    if (this.state.lastName == ""){
+      errorMessage += "Last name is empty \n";
+    }
+    if (this.state.eventDate == ""){
+      errorMessage += "Event date is empty \n";
+    }
+    console.log(this.state.email.indexOf("@"));
+    if (this.state.email.indexOf("@") == -1){
+      errorMessage += "Not valid email \n";
+    }
+    this.setState({
+      error: errorMessage
+    });
+
+    //TODO connect to server here
+
     event.preventDefault();
   }
 
@@ -57,7 +72,7 @@ export default class Form extends React.Component {
                         <input type="email" name="email" className="form-control" id="email" placeholder="Email" value={this.state.email} onChange={this.formChange} />
                     </div>
                     <button onClick={this.formSubmit} type="submit" className="btn btn-primary">Submit</button>
-                    <p>{this.state.error}</p>
+                    <p class="bg-danger">{this.state.error}</p>
                     </form>
                 </div>
               <div className="col-md-2 brain-border"></div>
