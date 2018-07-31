@@ -7,13 +7,15 @@ export default class Form extends React.Component {
       firstName: "",
       lastName: "",
       eventDate: "",
-      email: ""
+      email: "",
+      error: ""
     };
 
     this.formChange = this.formChange.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
+
   }
-  
+
   formChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
@@ -21,7 +23,11 @@ export default class Form extends React.Component {
   }
 
   formSubmit(event) {
-    alert('A name was submitted: ' + this.state.firstName);
+    if (this.state.firstName == ""){
+      this.setState({
+        error: "Error djfsdfaksdf"
+      });
+    }
     event.preventDefault();
   }
 
@@ -51,6 +57,7 @@ export default class Form extends React.Component {
                         <input type="email" name="email" className="form-control" id="email" placeholder="Email" value={this.state.email} onChange={this.formChange} />
                     </div>
                     <button onClick={this.formSubmit} type="submit" className="btn btn-primary">Submit</button>
+                    <p>{this.state.error}</p>
                     </form>
                 </div>
               <div className="col-md-2 brain-border"></div>
