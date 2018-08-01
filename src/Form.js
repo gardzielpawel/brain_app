@@ -23,27 +23,36 @@ export default class Form extends React.Component {
   }
 
   formSubmit(event) {
+    event.preventDefault();
     let errorMessage = "";
-    if (this.state.firstName == ""){
+    if (this.state.firstName === ""){
       errorMessage += "First name is empty";
     }
-    if (this.state.lastName == ""){
+    if (this.state.lastName === ""){
       errorMessage += "Last name is empty";
     }
-    if (this.state.eventDate == ""){
+    if (this.state.eventDate === ""){
       errorMessage += "Event date is empty";
     }
-    console.log(this.state.email.indexOf("@"));
-    if (this.state.email.indexOf("@") == -1){
+    if (this.state.email.indexOf("@") === -1){
       errorMessage += "Not valid email";
     }
     this.setState({
       error: errorMessage
     });
-
-    //TODO connect to server here
-
-    event.preventDefault();
+    if(errorMessage !== ""){
+      return;
+    }
+    var url = 'http://127.0.0.1:5000/api/addparticipant';
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState === 4 && this.status === 200) {
+        alert("You have been added to the event");
+      }
+    };
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify(this.state));
   }
 
   render() {
@@ -72,7 +81,7 @@ export default class Form extends React.Component {
                         <input type="email" name="email" className="form-control" id="email" placeholder="Email" value={this.state.email} onChange={this.formChange} />
                     </div>
                     <button onClick={this.formSubmit} type="submit" className="btn btn-primary">Submit</button>
-                    <p class="bg-danger">{this.state.error}</p>
+                    <p className="bg-danger">{this.state.error}</p>
                     </form>
                 </div>
               <div className="col-md-2 brain-border"></div>
